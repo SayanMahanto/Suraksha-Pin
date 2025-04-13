@@ -1,9 +1,10 @@
 import React from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import process from "process";
 
 const Map = ({ latitude, longitude }) => {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBBcGVeJwl7e-84xLoiRP4ONU9GuqUgUZ4",
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
   });
 
   return isLoaded ? (
