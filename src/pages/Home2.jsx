@@ -9,7 +9,6 @@ import {
   FaSpinner,
 } from "react-icons/fa";
 
-// Loader component with vibrant colors
 const Loader = () => (
   <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
     <div className="bg-gray-900 p-10 rounded-xl text-white text-center flex flex-col items-center space-y-6">
@@ -32,7 +31,7 @@ const Home2 = () => {
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000); // simulate load
+    const timer = setTimeout(() => setLoading(false), 2000); 
     return () => clearTimeout(timer);
   }, []);
 
@@ -46,7 +45,6 @@ const Home2 = () => {
 
   return (
     <div className="flex w-full min-h-screen bg-gray-900 text-white">
-      {/* Sidebar with blue tones and hover effects */}
       <aside className="w-20 bg-gray-700 flex flex-col items-center py-6 shadow-2xl space-y-10 transition-all duration-300 hover:bg-gray-500">
         <FaHome className="text-3xl text-white hover:text-orange-300 cursor-pointer transition-colors duration-200" />
         <FaUserFriends className="text-3xl text-white hover:text-orange-300 cursor-pointer transition-colors duration-200" />
@@ -54,16 +52,12 @@ const Home2 = () => {
         <FaCog className="text-3xl text-white hover:text-orange-300 cursor-pointer transition-colors duration-200" />
       </aside>
 
-      {/* Main Layout */}
       <main className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Alert Panel with gradient and shadow */}
         <section className="bg-teal-800 p-6 text-center text-xl font-bold text-white shadow-lg">
           🚨 System Operational. GPS tracking active.
         </section>
 
-        {/* Main Content */}
         <div className="flex flex-1 overflow-hidden">
-          {/* Center Map Panel */}
           <section className="flex-1 p-6 space-y-6 overflow-auto">
             <div className="flex gap-6">
               <div className="bg-gray-800 p-6 rounded-xl flex items-center gap-6 shadow-lg border border-gray-700">
@@ -83,7 +77,6 @@ const Home2 = () => {
               </div>
             </div>
 
-            {/* Map */}
             <div className="bg-gray-700 rounded-xl p-6 shadow-lg border border-gray-700 h-[450px]">
               {gps.latitude && gps.longitude ? (
                 <Map latitude={gps.latitude} longitude={gps.longitude} />
@@ -95,7 +88,6 @@ const Home2 = () => {
             </div>
           </section>
 
-          {/* Right Sidebar User List with vertical gradient */}
           <aside className="w-64 bg-gradient-to-b from-red-600 to-blue-600 p-6 shadow-lg space-y-6 max-h-screen overflow-y-auto">
             <h2 className="text-2xl font-bold mb-4 text-white drop-shadow-md">
               Users
@@ -117,7 +109,6 @@ const Home2 = () => {
           </aside>
         </div>
 
-        {/* Bottom User Details Panel */}
         <footer className="bg-gray-800 p-6 shadow-inner border-t border-gray-700">
           {selectedUser ? (
             <div>

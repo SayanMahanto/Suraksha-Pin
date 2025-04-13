@@ -11,11 +11,11 @@ const GPSData = ({ setGps, setUserId }) => {
   useEffect(() => {
     const fetchGPS = async () => {
       try {
-        const res = await axios.get("http://192.168.134.94/data"); // use your ESP32 IP
+        const res = await axios.get("http://192.168.134.94/data");
         const packets = res.data;
 
         if (Array.isArray(packets) && packets.length > 0) {
-          const latest = packets[packets.length - 1]; // Get latest packet
+          const latest = packets[packets.length - 1];
           const { latitude, longitude, unique_id } = latest;
 
           setGpsData({ latitude, longitude });

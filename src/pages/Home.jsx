@@ -9,7 +9,6 @@ import {
   FaSpinner,
 } from "react-icons/fa";
 
-// Optional: Create a fake loading delay
 const Loader = () => (
   <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
     <div className="bg-gray-800 p-10 rounded-xl text-white text-center flex flex-col items-center space-y-4">
@@ -32,7 +31,8 @@ const Home = () => {
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000); // simulate load
+    const timer = setTimeout(() => setLoading(false), 2000);
+    d;
     return () => clearTimeout(timer);
   }, []);
 
@@ -46,7 +46,6 @@ const Home = () => {
 
   return (
     <div className="flex w-full min-h-screen bg-gray-900 text-white">
-      {/* Sidebar */}
       <aside className="w-20 bg-gray-800 flex flex-col items-center py-4 shadow-xl space-y-8">
         <FaHome className="text-2xl hover:text-white cursor-pointer" />
         <FaUserFriends className="text-2xl hover:text-white cursor-pointer" />
@@ -54,16 +53,12 @@ const Home = () => {
         <FaCog className="text-2xl hover:text-white cursor-pointer" />
       </aside>
 
-      {/* Main Layout */}
       <main className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Alert Panel */}
         <section className="bg-gray-700 p-4 text-center text-sm">
           🚨 System Operational. GPS tracking active.
         </section>
 
-        {/* Main Content */}
         <div className="flex flex-1 overflow-hidden">
-          {/* Center Map Panel */}
           <section className="flex-1 p-4 space-y-4 overflow-auto">
             <div className="flex gap-4">
               <div className="bg-gray-800 p-4 rounded-xl flex items-center gap-4 shadow-md">
@@ -81,7 +76,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Map */}
             <div className="bg-gray-800 rounded-xl p-4 shadow-md h-[400px]">
               {gps.latitude && gps.longitude ? (
                 <Map latitude={gps.latitude} longitude={gps.longitude} />
@@ -92,8 +86,6 @@ const Home = () => {
               )}
             </div>
           </section>
-
-          {/* Right Sidebar User List */}
           <aside className="w-64 bg-gray-800 p-4 shadow-md space-y-4">
             <h2 className="text-xl font-bold mb-2">Users</h2>
             {connectedUsers.map((user) => (
@@ -110,7 +102,6 @@ const Home = () => {
           </aside>
         </div>
 
-        {/* Bottom User Details Panel */}
         <footer className="bg-gray-800 p-4 shadow-inner">
           {selectedUser ? (
             <div>
